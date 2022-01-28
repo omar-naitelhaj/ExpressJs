@@ -1,0 +1,13 @@
+.menu-buttons {
+    position: relative;
+    display: grid;
+    float: right;
+    margin: 5px;
+}
+.mw-100 {
+    min-width: 100%;
+}
+
+#files-upload {
+    border: 2px dashed black;
+}

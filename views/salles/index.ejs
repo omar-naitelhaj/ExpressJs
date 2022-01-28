@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>
+        <%= title %>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Test -->
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="../css/loader.css" rel="stylesheet" type="text/css">
+    <link href="../fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+    <link href="../css/css.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <!-- <link href="../css/dataTables.bootstrap5.min.css" rel="stylesheet"> -->
+    <link href="../css/admin.css" rel="stylesheet" type="text/css">
+    <link href="../css/dropzone.css" rel="stylesheet" type="text/css">
+    <link href="../css/popupForm.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <li>
+                <div class="sidebar-brand d-flex align-items-center">
+                    <div class="sidebar-brand-icon">
+                        <img src="../images/user.png" alt="Omar" width="50" height="50" style="float: left;">
+                    </div>
+                    <div class="sidebar-brand-text mx-3">
+                        <span style="font-size: 12px;margin: 5px;">Omar Naitelhaj</span>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">
+                    <i class="fas fa-home fa-fw "></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Gestion
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/blocs">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Blocs</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/salles">
+                    <i class="fas fa-qrcode"></i>
+                    <span>Salles</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/creneau">
+                    <i class="fas fa-clock"></i>
+                    <span>Créneaux</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/occupation">
+                    <i class="far fa-check-circle"></i>
+                    <span>Occupations</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/users">
+                    <i class="fas fa-users"></i>
+                    <span>Utilisateurs</span></a>
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Omar Naitelhaj</span>
+                                <img class="img-profile rounded-circle" src="../images/user.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <style>
+                        h2 {
+                            text-align: center;
+                        }
+                    </style>
+                    <h2>
+                        <%= title %>
+                    </h2>
+
+                    <div class="row shadow">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Liste Des Salles: </h6>
+                        </div>
+                        <div class="row">
+                            <table class="table table-stripped table-hover table-bordered display" style="position: relative; width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">Bloc</th>
+                                        <th scope="col">Code Bar</th>
+                                        <th scope="col">Edit / Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="overflow: auto;">
+                                    <% salles.forEach(function(e){ %>
+                                        <tr>
+                                            <td>
+                                                <%= e.name %>
+                                            </td>
+                                            <td>
+                                                <%= e.type %>
+                                            </td>
+                                            <td>
+                                                <%= e.bloc.name %>
+                                            </td>
+                                            <td id="<%= e._id %>">
+                                            </td>
+
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" onclick="openForm('<%= e._id %>' , '<%= e.name %>' , '<%= e.type %>' , '<%= e.bloc._id %>' , '<%= e.bloc.name %>')">Edit</button>
+                                                <a href="salles/delete/<%= e._id %>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete \'<%= e.name %>\' ??');">Delete</a>
+                                            </td>
+                                        </tr>
+                                        <% }); %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <br><br>
+
+                    <div class="row shadow">
+                        <div class="py-3 card-header">
+                            <h6 class="m-0 font-weight-bold text-primary">Ajouter une Salle :
+                            </h6>
+                        </div>
+
+                        <div class="row">
+                            <form action="/salles/save" method="POST" autocomplete="off">
+                                <div class="form-row">
+                                    <div class="col-sm-11 col-lg-5 codecontainer">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control m-3" placeholder="Salle A1" id="name" name="name">
+                                    </div>
+                                    <div class="col-sm-11 col-lg-5 codecontainer">
+                                        <label for="type">Type</label>
+                                        <input type="text" class="form-control m-3" placeholder="IT" id="type" name="type">
+                                    </div>
+                                    <div class="col-sm-11 col-lg-5 codecontainer">
+                                        <label for="bloc">Bloc</label>
+                                        <select id="bloc" placeholder="Bloc A" name="bloc" class="form-control m-3">
+                      <% blocs.forEach(function(e){ %>
+                        <option value="<%= e.id %>">
+                          <%= e.name %>
+                        </option>
+                        <% }); %>
+                    </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-success m-3">Ajouter</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <br><br>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Naitelhaj Nafil 2022</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <div class="loader-wrapper">
+            <span class="loader"><span class="loader-inner"></span></span>
+        </div>
+
+        <div class="form-popup" id="myForm">
+            <form id="formEdit_id" action="" method="POST" autocomplete="off" class="form-container">
+
+                <label for="name"><b>Edit Salle</b></label>
+                <input id="nameEdit" type="text" placeholder="Salle A1" name="name" required>
+                <input id="typeEdit" type="text" placeholder="IT" name="type" required>
+                <select id="blocEdit" placeholder="Bloc A" name="bloc" required>
+          <% blocs.forEach(function(e){ %>
+            <option value="<%= e.id %>">
+              <%= e.name %>
+            </option>
+            <% }); %>
+        </select>
+
+                <button type="submit" class="btn">Modify</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+
+        <script>
+            function openForm(id, name, type, idBloc, nameBloc) {
+                document.getElementById("myForm").style.display = "block";
+                $('#nameEdit').val(name);
+                $('#typeEdit').val(type);
+                document.getElementById("formEdit_id").action = "/salles/update/" + id;
+            }
+
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+        </script>
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../js/jquery-3.6.0.js"></script>
+        <!-- <script src="../js/dataTables.bootstrap4.js"></script> -->
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/bootstrap.bundle.js"></script>
+        <!-- <script src="../js/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables.bootstrap5.min.js"></script> -->
+
+        <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="../js/jquery.easing.js"></script>
+        <script src="../js/dropzone.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.js"></script>
+        <script src="../js/all.js"></script>
+        <script src="/qrcode.min.js"></script>
+        <script src="../js/salle/salle.js"></script>
+        <!-- <script src="../js/blocs/blocs.js"></script> -->
+        <script>
+            function makepage(src, salle, bloc) {
+                // We break the closing script tag in half to prevent
+                // the HTML parser from seeing it as a part of
+                // the *main* page.
+
+                return "<html>\n" +
+                    "<head>\n" +
+                    "<title>Temporary Printing Window</title>\n" +
+                    "<script>\n" +
+                    "function step1() {\n" +
+                    "  setTimeout('step2()', 10);\n" +
+                    "}\n" +
+                    "function step2() {\n" +
+                    "  window.print();\n" +
+                    "  window.close();\n" +
+                    "}\n" +
+                    "</scr" + "ipt>\n" +
+
+                    "</head>\n" +
+
+                    "<body onClick='step1()'>\n" +
+                    "<img src='" + src + "'  style='" + "width:600px;" + "margin-left:50px;'" + "/>\n" +
+                    "<h1 " + "  style='" + "width:600px; margin-left:250px;font-size:5em'" + ">" + salle + "</h1>" + "\n" +
+                    "<h1 " + "  style='" + "width:600px; margin-left:250px;font-size:5em'" + ">" + bloc + "</h1>" + "\n" +
+
+                    "</body>\n" +
+                    "</html>\n";
+            }
+        </script>
+
+        <% salles.forEach(function(e){ %>
+            <script>
+                var qrdata = document.getElementById("qr-data");
+                var div = document.createElement("div");
+
+                document.getElementById("<%= e._id %>").appendChild(div);
+                div.id = "qrcodee" + "<%= e._id %>";
+                var qrcodee = new QRCode(document.getElementById("qrcodee" + "<%= e._id %>"));
+                var data = "<%= e._id %>";
+                qrcodee.makeCode(data);
+
+                var image = document.getElementById("qrcodee" + "<%= e._id %>").getElementsByTagName('img');
+                image[0].onclick = function() {
+                    link = "about:blank";
+                    var pw = window.open(link, "_new");
+                    pw.document.open();
+                    pw.document.write(makepage(image[0].src, "<%= e.name %>", "<%= e.bloc.name %>"));
+                    pw.document.close();
+                };
+                console.log(image);
+            </script>
+            <% }); %>
+
+</body>
+
+</html>

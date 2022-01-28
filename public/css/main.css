@@ -1,0 +1,55 @@
+#userheader {
+    color: white;
+    padding-top: 20px;
+    font-weight: bold;
+}
+.logout {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+}
+
+.classeform {
+    width: 80%;
+    margin-top: 20px;
+    border: 1px solid #355ccc;
+}
+
+
+#class-section-header {
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background: #355ccc;
+    color: white;
+}
+.nopad {
+    padding: 0px;
+}
+#filiereoptions {
+    height: 40px;
+}
+
+.ajouter {
+    background: transparent;
+    color: green;
+    margin: 5px;
+}
+
+.tablecontainer {
+    margin-top: 10px;
+    width: 80%;
+}
+
+.dataTables_length {
+    position: relative;
+    float: right;
+}
+
+.center {
+    text-align: center;
+}
+.hide{
+    visibility: hidden;
+    height: 0px;
+}
