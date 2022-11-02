@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-.button {
-  cursor: pointer;
-  background: rgb(0, 145, 0);
-  width:35%;
-  align-items: center;
-  margin-top: 40px;
-}
 
 h1 {
   color: rgb(255, 0, 0);
